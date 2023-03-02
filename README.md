@@ -29,7 +29,7 @@ where you can give your *.exe* file any name you want instead of *final*. Next, 
 
 Decompression is very similar:
 
-`\<name>.exe decompress --input <yourJBKfile> --output --<nameForTGA>
+`\<name>.exe decompress --input <yourJBKfile> --output --<nameForTGA>`
 
 ### Linux
 
