@@ -21,7 +21,7 @@ During decompression, the program saves all the information needed from the comp
 
 In console, using gcc. First command might look like:
 
-`gcc main.c compressedImplementation.c decompressedImplementation.c -o final`
+`gcc main.c compressImplementation.c decompressImplementation.c -o final`
 
 where you can give your *.exe* file any name you want instead of *final*. Next, if you want to compress a TGA image, the its template is:
 
@@ -29,7 +29,7 @@ where you can give your *.exe* file any name you want instead of *final*. Next, 
 
 Decompression is very similar:
 
-`\<name>.exe decompress --input <yourJBKfile> --output --<nameForTGA>
+`\<name>.exe decompress --input <yourJBKfile> --output --<nameForTGA>`
 
 ### Linux
 

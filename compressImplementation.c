@@ -184,7 +184,7 @@ void saveSequences(Sequence* mySequences, int size, Image myImage, char* outputP
     fwrite(&blockSize, sizeof(int), 1, file); 
 
     // Max length of one sequence.              // HERE OPT
-    int temp = blockSize * blockSize;
+    long long temp = blockSize * blockSize;
     int count = 0;
     while(temp > (pow(2, count)))  {
         count++;
@@ -197,6 +197,8 @@ void saveSequences(Sequence* mySequences, int size, Image myImage, char* outputP
         flag = 1;
     } else if (temp < 65535)  {
         flag = 2;
+    } else if (temp < 4294967295)  {
+        flag = 3;
     } else  {
         flag = 4;
     }
