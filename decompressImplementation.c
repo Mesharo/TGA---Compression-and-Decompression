@@ -56,11 +56,11 @@ Pixel* computePixelPositions(FILE* file, int width, int height, int blockSize)  
 
     Pixel* myPixels = (Pixel*)malloc(sizeof(Pixel) * width * height);
 
-    byte currentSequence[3] = {0,0,0}; // blue, green, red
+    byte currentSequence[3] = {0,0,0};
 
     int length = 0;
 
-    // Max length of one sequence.  // HERE OPT
+    // Max length of one sequence. 
     long long temp = blockSize * blockSize;
     int count = 0;
     while(temp > (pow(2, count)))  {
@@ -68,7 +68,7 @@ Pixel* computePixelPositions(FILE* file, int width, int height, int blockSize)  
     }
     temp = pow(2, count);
 
-    // Size of bytes needed to save the block.  // HERE OPT
+    // Size of bytes needed to save the block.
     int flag = 0;
     if (temp < 255)  {
         flag = 1;
@@ -86,7 +86,7 @@ Pixel* computePixelPositions(FILE* file, int width, int height, int blockSize)  
                 for (int smallSquareY = 0; smallSquareY < blockSize; smallSquareY++)  {  
                     if (length == 0)  {
                         fread(currentSequence, sizeof(byte), 3, file);
-                        fread(&length, flag, 1, file);              // HERE
+                        fread(&length, flag, 1, file);           
                     }
           
                     Pixel current;

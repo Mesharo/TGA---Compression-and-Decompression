@@ -11,12 +11,6 @@
 #include "decompress.h"
 
 
-/*
-FINAL VERSION
-optimalizace, vsechno jede
-*/
-
-
 /**
  * Wrapper function to determine correctness of command line arguments.
  * \param argc int. Number of command line arguments.

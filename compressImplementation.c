@@ -183,7 +183,7 @@ void saveSequences(Sequence* mySequences, int size, Image myImage, char* outputP
 
     fwrite(&blockSize, sizeof(int), 1, file); 
 
-    // Max length of one sequence.              // HERE OPT
+    // Max length of one sequence.              
     long long temp = blockSize * blockSize;
     int count = 0;
     while(temp > (pow(2, count)))  {
@@ -191,7 +191,7 @@ void saveSequences(Sequence* mySequences, int size, Image myImage, char* outputP
     }
     temp = pow(2, count);
 
-    // Size of bytes needed to save the block.  // HERE OPT
+    // Size of bytes needed to save the block. 
     int flag = 0;
     if (temp < 255)  {
         flag = 1;
@@ -204,16 +204,16 @@ void saveSequences(Sequence* mySequences, int size, Image myImage, char* outputP
     }
 
     for (int i = 0; i < size; i++)  {
-        byte blue = 0; byte green = 0; byte red = 0; int length = 0;   // HERE  2^8 -> 2^32
+        byte blue = 0; byte green = 0; byte red = 0; int length = 0;  
         memcpy(&blue, &mySequences[i].pixel.blue, 1);
         memcpy(&green, &mySequences[i].pixel.green, 1);
         memcpy(&red, &mySequences[i].pixel.red, 1);
-        memcpy(&length, &mySequences[i].length, flag);        // HERE
+        memcpy(&length, &mySequences[i].length, flag); 
 
         fwrite(&blue, sizeof(byte), 1, file);
         fwrite(&green, sizeof(byte), 1, file); 
         fwrite(&red, sizeof(byte), 1, file);
-        fwrite(&length, flag, 1, file);   // HERE
+        fwrite(&length, flag, 1, file);  
     }
 
     fclose(file);
